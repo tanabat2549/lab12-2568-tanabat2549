@@ -112,31 +112,29 @@ export default function HomePage() {
                     </Text>
                   )}
                   {/* แสดง Date & Time */}
-                  <Text size="xs" c="gray">
-                    Done at:
-                  </Text>
+
+                  {task.isDone && (
+                    <Text size="xs" c="thanabat">
+                      Done at:
+                      {new Date().toLocaleString()}
+                    </Text>
+                  )}
                 </Stack>
                 {/* แสดง Button Done & Button Delete */}
                 <Group>
-                  <Button
-                    style={{
-                      backgroundColor: "#71c32fda",
-                      color: "#dce6e7ff",
-                    }}
-                    variant="light"
-                    size="xs"
+                  <Checkbox
                     onClick={() => toggleDoneTask(task.id)}
-                  >
-                    Done
-                  </Button>
-                  <Button
-                    color="chanadda"
+                    defaultChecked={task.isDone}
+                    label="Done"
+                  />
+                  <ActionIcon
                     variant="light"
-                    size="xs"
+                    aria-label="Settings"
+                    color="red"
                     onClick={() => deleteTask(task.id)}
                   >
-                    Delete
-                  </Button>
+                    <IconTrash />
+                  </ActionIcon>
                 </Group>
               </Group>
             </Card>

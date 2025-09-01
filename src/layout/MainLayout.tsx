@@ -3,9 +3,11 @@ import { AppShell } from "@mantine/core";
 import HeaderComponent from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import FooterComponent from "../components/Footer";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure} from "@mantine/hooks";
 export default function MainLayout() {
   const [opened, { toggle }] = useDisclosure();
+  
+  
   //opened: เป็น boolean (true/false)
   //toggle(): สลับค่า opened (true → false → true)
   return (
@@ -26,8 +28,8 @@ export default function MainLayout() {
       <AppShell.Footer>
         <FooterComponent
           year="2025"
-          fullName="chanadda"
-          studentId="670612039"
+          fullName="thanabat"
+          studentId="670612121"
         />
       </AppShell.Footer>
 
