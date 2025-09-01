@@ -20,6 +20,7 @@ interface Task {
   description: string;
   isDone: boolean;
   dueDate: Date | null;
+  dueTime?: Date | null;
 }
 
 export default function HomePage() {
@@ -76,7 +77,11 @@ export default function HomePage() {
   // Toggle done
   const toggleDoneTask = (taskId: string) => {
     setTasks((prev) =>
-      prev.map((t) => (t.id === taskId ? { ...t, isDone: !t.isDone } : t))
+      prev.map((t) =>
+        t.id === taskId
+          ? { ...t, isDone: !t.isDone, dueTime: !t.isDone ? new Date() : null }
+          : t
+      )
     );
   };
 
@@ -113,10 +118,10 @@ export default function HomePage() {
                   )}
                   {/* แสดง Date & Time */}
 
-                  {task.isDone && (
+                  {task.isDone && task.dueTime && (
                     <Text size="xs" c="thanabat">
                       Done at:
-                      {new Date().toLocaleString()}
+                      {task.dueTime.toLocaleString()}
                     </Text>
                   )}
                 </Stack>
