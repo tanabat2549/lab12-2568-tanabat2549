@@ -3,11 +3,10 @@ import { AppShell } from "@mantine/core";
 import HeaderComponent from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import FooterComponent from "../components/Footer";
-import { useDisclosure} from "@mantine/hooks";
+import { useDisclosure } from "@mantine/hooks";
 export default function MainLayout() {
   const [opened, { toggle }] = useDisclosure();
-  
-  
+
   //opened: เป็น boolean (true/false)
   //toggle(): สลับค่า opened (true → false → true)
   return (
@@ -22,7 +21,7 @@ export default function MainLayout() {
       </AppShell.Header>
 
       <AppShell.Navbar>
-        <Sidebar />
+        <Sidebar userName="thanabat" />
       </AppShell.Navbar>
 
       <AppShell.Footer>
